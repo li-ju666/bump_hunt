@@ -430,14 +430,7 @@
 <p>The observation here is a fixed-length histogram and the backbone an MLP. Real searches have event-level data of variable size, and the structure to respect is permutation invariance over events rather than a grid of bins. A convolution over bins is the small step; a set-structured backbone is the relevant one.</p>
 <p>The budget question is sharper than the number 30,000 suggests. A real simulation is priced per event, each histogram has about 1,500 of them, and searches build histograms from one large background sample and one signal sample per mass point. The accounting for collider SBI should be in events, and the mass region where the posterior is still wide is where additional events would be worth most. That is the direction this toy is meant to prepare.</p>
 <h2 id="reproduce">Reproduce</h2>
-<p>Python 3.14 with <code>uv</code>; numpy, scipy, torch, matplotlib and markdown are installed from the project file.</p>
-<pre><code>uv run python minimal.py                               # toy self-check and figure
-uv run python scripts/train.py --budget 30000          # ~4 min with early stopping
-uv run python scripts/demo.py --run runs/b30000_s0      # static four-panel figure
-uv run python scripts/export_interactive.py --run runs/b30000_s0   # data for this page, ~8 min
-uv run python scripts/build_site.py                    # docs/post.md -&gt; site/index.html
-</code></pre>
-<p><code>oneflow/simulator.py</code> holds the toy and its exact likelihood, <code>oneflow/reference.py</code> the grid posterior, evidence and absent-bin posterior. <code>oneflow/data.py</code>, <code>masks.py</code>, <code>model.py</code>, <code>train.py</code> and <code>flow.py</code> are the preprocessing, mask sampler, network, training with early stopping, and sampling and log densities from a trained model. This text is <code>docs/post.md</code>, Markdown with <code>$...$</code> math; the line <code>&lt;!-- explorer --&gt;</code> marks where the interactive section goes. <code>scripts/site_template.html</code> is the page shell and <code>scripts/build_site.py</code> combines the two with the precomputed data into <code>site/index.html</code>, a single file with the data inline and Plotly, KaTeX and the fonts from CDNs. A GitHub Actions workflow in the repository publishes the <code>site/</code> folder to GitHub Pages on every push.</p>
+<p>The code, the trained model and the source of this page are at <a href="https://github.com/li-ju666/bump_hunt">github.com/li-ju666/bump_hunt</a>. Training the model takes a few minutes on a laptop; the README there lists the commands.</p>
 <p id="model-note"></p>
 
 <h2 id="references">References</h2>

@@ -128,17 +128,7 @@ The budget question is sharper than the number 30,000 suggests. A real simulatio
 
 ## Reproduce {#reproduce}
 
-Python 3.14 with `uv`; numpy, scipy, torch, matplotlib and markdown are installed from the project file.
-
-```
-uv run python minimal.py                               # toy self-check and figure
-uv run python scripts/train.py --budget 30000          # ~4 min with early stopping
-uv run python scripts/demo.py --run runs/b30000_s0      # static four-panel figure
-uv run python scripts/export_interactive.py --run runs/b30000_s0   # data for this page, ~8 min
-uv run python scripts/build_site.py                    # docs/post.md -> site/index.html
-```
-
-`oneflow/simulator.py` holds the toy and its exact likelihood, `oneflow/reference.py` the grid posterior, evidence and absent-bin posterior. `oneflow/data.py`, `masks.py`, `model.py`, `train.py` and `flow.py` are the preprocessing, mask sampler, network, training with early stopping, and sampling and log densities from a trained model. This text is `docs/post.md`, Markdown with `$...$` math; the line `<!-- explorer -->` marks where the interactive section goes. `scripts/site_template.html` is the page shell and `scripts/build_site.py` combines the two with the precomputed data into `site/index.html`, a single file with the data inline and Plotly, KaTeX and the fonts from CDNs. A GitHub Actions workflow in the repository publishes the `site/` folder to GitHub Pages on every push.
+The code, the trained model and the source of this page are at [github.com/li-ju666/bump_hunt](https://github.com/li-ju666/bump_hunt). Training the model takes a few minutes on a laptop; the README there lists the commands.
 
 <p id="model-note"></p>
 
