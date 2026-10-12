@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# editors and OS
+.vscode/
+.idea/
+.DS_Store
+
+# personal documents and the paper PDF: keep out of a public repository
+docs/*.pdf
+
+# everything not needed by the demo (earlier sweeps, budget study, their models and logs)
+archive/
+
+# training outputs: the demo model is small and kept; logs and anything else under runs/ are not
+runs/*
+!runs/b30000_s0/
+runs/b30000_s0/*
+!runs/b30000_s0/model.pt
+!runs/b30000_s0/config.json
+
+# scratch outputs; results/demo.png and results/interactive_data.json are kept for the site
+results/*.log

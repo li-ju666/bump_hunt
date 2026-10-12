@@ -1,0 +1,12 @@
+{
+  "d": 51,
+  "hidden": 256,
+  "n_blocks": 4,
+  "steps": 50000,
+  "batch": 512,
+  "lr": 0.0005,
+  "budget": 30000,
+  "n_val": 3000,
+  "seed": 0,
+  "mask_weights": null
+}

@@ -1,0 +1,74 @@
+<figure class="mech" id="mech">
+  <svg viewBox="0 0 960 330" role="img" aria-label="Two protons collide; the collision goes either through Drell-Yan, giving a muon pair of any mass, or through a Z prime, giving a pair near its mass M; the detector measures both muons, one invariant mass is computed per event, and only the histogram of many events shows the bump.">
+    <defs>
+      <marker id="mech-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+    <!-- protons -->
+    <circle cx="36" cy="118" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <text x="36" y="122" font-size="11" text-anchor="middle">p</text>
+    <circle cx="36" cy="222" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <text x="36" y="226" font-size="11" text-anchor="middle">p</text>
+    <line x1="50" y1="126" x2="104" y2="164" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+    <line x1="50" y1="214" x2="104" y2="176" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+    <text x="68" y="178" font-size="11" text-anchor="middle">collision</text>
+    <circle cx="112" cy="170" r="4" fill="currentColor"/>
+    <!-- background branch -->
+    <g id="mech-bkg" class="mech-branch">
+      <line x1="116" y1="166" x2="196" y2="98" stroke="currentColor" stroke-width="1.5"/>
+      <text x="148" y="112" font-size="11" text-anchor="middle">quark + antiquark</text>
+      <path d="M198 96 q8 -9 16 0 t16 0 t16 0 t16 0 t16 0 t16 0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="246" y="80" font-size="12" text-anchor="middle">γ* / Z, any mass</text>
+      <text x="246" y="128" font-size="11" text-anchor="middle" class="mech-sub">Drell-Yan (background)</text>
+      <line x1="296" y1="96" x2="392" y2="66" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+      <line x1="296" y1="96" x2="392" y2="126" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+      <text x="356" y="60" font-size="12" text-anchor="middle">μ⁺</text>
+      <text x="356" y="144" font-size="12" text-anchor="middle">μ⁻</text>
+    </g>
+    <!-- signal branch -->
+    <g id="mech-sig" class="mech-branch">
+      <line x1="116" y1="174" x2="196" y2="242" stroke="currentColor" stroke-width="1.5"/>
+      <text x="148" y="240" font-size="11" text-anchor="middle">quark + antiquark</text>
+      <path d="M198 244 q8 -9 16 0 t16 0 t16 0 t16 0 t16 0 t16 0" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="246" y="228" font-size="12" text-anchor="middle">Z′, mass M</text>
+      <text x="246" y="272" font-size="11" text-anchor="middle" class="mech-sub">new particle (signal)</text>
+      <line x1="296" y1="244" x2="392" y2="214" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+      <line x1="296" y1="244" x2="392" y2="274" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+      <text x="356" y="208" font-size="12" text-anchor="middle">μ⁺</text>
+      <text x="356" y="292" font-size="12" text-anchor="middle">μ⁻</text>
+    </g>
+    <!-- detector -->
+    <rect x="400" y="44" width="56" height="252" rx="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="428" y="170" font-size="11" text-anchor="middle" transform="rotate(-90 428 170)">detector: E and p of each muon</text>
+    <!-- formula -->
+    <line x1="458" y1="170" x2="496" y2="170" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+    <rect x="500" y="134" width="150" height="72" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <text x="575" y="160" font-size="14" text-anchor="middle" font-style="italic">m = √(E² − |p|²)</text>
+    <text x="575" y="180" font-size="11" text-anchor="middle" class="mech-sub">one number per event</text>
+    <text id="mech-readout" x="575" y="226" font-size="12" text-anchor="middle" class="mech-mono">m = —</text>
+    <line x1="652" y1="170" x2="684" y2="170" stroke="currentColor" stroke-width="1.5" marker-end="url(#mech-arrow)"/>
+    <!-- histogram -->
+    <g id="mech-hist"></g>
+    <polyline id="mech-expected" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" points=""/>
+    <line x1="690" y1="272" x2="936" y2="272" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="690" y1="272" x2="690" y2="64" stroke="currentColor" stroke-width="1.2"/>
+    <g id="mech-ticks" font-size="10"></g>
+    <text x="813" y="300" font-size="11" text-anchor="middle">invariant mass m [GeV]</text>
+    <text x="700" y="58" font-size="11" class="mech-sub">events / bin</text>
+    <text id="mech-ymax" x="686" y="68" font-size="10" text-anchor="end" class="mech-mono"></text>
+    <polygon id="mech-marker" points="0,0 -5,9 5,9" fill="currentColor" transform="translate(-20 273)"/>
+  </svg>
+  <div class="mech-controls">
+    <label>true signal strength μ <input type="range" id="mech-mu" autocomplete="off" min="0" max="3" step="0.1" value="1"><output id="mech-mu-out">1.0</output></label>
+    <label>true mass M <input type="range" id="mech-M" autocomplete="off" min="300" max="1000" step="10" value="600"><output id="mech-M-out">600</output> GeV</label>
+    <span class="mech-buttons">
+      <button type="button" id="mech-one">one collision</button>
+      <button type="button" id="mech-hundred">100</button>
+      <button type="button" id="mech-run">run</button>
+      <button type="button" id="mech-reset">reset</button>
+    </span>
+    <label class="mech-check"><input type="checkbox" id="mech-reveal" autocomplete="off"> reveal which process made each event</label>
+  </div>
+  <figcaption id="mech-status">Press "one collision". Each collision takes one of the two routes and ends as a muon pair, the detector measures the pair, and one mass is recorded. The dashed line is the expected histogram for the current μ and M.</figcaption>
+</figure>
